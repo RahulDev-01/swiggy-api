@@ -10,7 +10,12 @@ const port = process.env.PORT || 5000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cors())
-app.use(express.static("public"));
+// Serve static files explicitly using absolute paths (important for serverless)
+const publicDir = path.join(__dirname, 'public');
+app.use('/images', express.static(path.join(publicDir, 'images'), {
+    maxAge: '7d',
+    immutable: true,
+}));
 
 // Root route for health check
 app.get('/', (req, res) => {
