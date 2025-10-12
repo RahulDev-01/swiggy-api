@@ -1,4 +1,4 @@
-# Swiggy Clone API 📍
+# Swiggy Clone API 📍 ⚡
 
 A Node.js Express API server for the Swiggy clone application, providing endpoints for categories and restaurant chains data.
 
